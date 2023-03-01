@@ -19,9 +19,9 @@ import com.maltaisn.icondialog.data.Icon;
 import com.maltaisn.icondialog.filter.DefaultIconFilter;
 import com.maltaisn.icondialog.pack.IconPack;
 import com.relit.timemaangement.ui.category.Category;
-import com.relit.timemaangement.ui.category.CategoryDatabaseHelper;
 import com.relit.timemaangement.R;
 import com.relit.timemaangement.TimeManagement;
+import com.relit.timemaangement.ui.category.CategoryDatabase;
 import com.skydoves.colorpickerview.ColorEnvelope;
 import com.skydoves.colorpickerview.ColorPickerView;
 import com.skydoves.colorpickerview.listeners.ColorListener;
@@ -119,8 +119,8 @@ public class AddCategoryActivity extends AppCompatActivity implements IconDialog
             return;
         }
         Category category = new Category(name, shortcut, iconID, color);
-        CategoryDatabaseHelper categoryDatabase = TimeManagement.getCategoryDatabase();
-        boolean b = categoryDatabase.addElement(category);
+        CategoryDatabase database = TimeManagement.getCategoryDatabase();
+        boolean b = database.addElement(category);
         if (b) {
             Toast.makeText(this, "Kategoria dodana", Toast.LENGTH_SHORT).show();
             onBackPressed();

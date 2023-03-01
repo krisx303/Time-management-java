@@ -20,12 +20,15 @@ import com.relit.timemaangement.databinding.FragmentCategoryBinding;
 import com.relit.timemaangement.ui.addcategory.AddCategoryActivity;
 import com.relit.timemaangement.ui.editcategory.EditCategoryActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class CategoryFragment extends Fragment {
 
     private FragmentCategoryBinding binding;
+    private List<Category> categories = new ArrayList<>();
+    private CategoryAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,8 +37,9 @@ public class CategoryFragment extends Fragment {
         FloatingActionButton fab = binding.getRoot().findViewById(R.id.add_new_category);
         fab.setOnClickListener(this::onAddCategoryClicked);
         RecyclerView recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
-        List<Category> categories = TimeManagement.getCategoryDatabase().getAllCategories();
-        CategoryAdapter adapter = new CategoryAdapter(categories, this::onCategoryClick, getIcons());
+        categories = TimeManagement.getCategoryDatabase().getAllElements();
+        categories.forEach(System.out::println);
+        adapter = new CategoryAdapter(categories, this::onCategoryClick, getIcons());
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
         return binding.getRoot();
@@ -43,7 +47,7 @@ public class CategoryFragment extends Fragment {
 
     private void onCategoryClick(Category category) {
         Intent intent = new Intent(getActivity(), EditCategoryActivity.class);
-        intent.putExtra(CategoryDatabaseHelper.CATEGORY_ID, category.getId());
+        intent.putExtra(CategoryDatabase.CATEGORY_ID, category.getId());
         startActivity(intent);
     }
 
@@ -62,5 +66,13 @@ public class CategoryFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        categories.clear();
+        categories.addAll(TimeManagement.getCategoryDatabase().getAllElements());
+        adapter.notifyDataSetChanged();
     }
 }

@@ -1,14 +1,11 @@
 package com.relit.timemaangement.ui.editcategory;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.graphics.Color;
 import android.graphics.LightingColorFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -24,11 +21,10 @@ import com.maltaisn.icondialog.IconDialogSettings;
 import com.maltaisn.icondialog.data.Icon;
 import com.maltaisn.icondialog.filter.DefaultIconFilter;
 import com.maltaisn.icondialog.pack.IconPack;
-import com.relit.timemaangement.ui.category.Category;
-import com.relit.timemaangement.ui.category.CategoryDatabaseHelper;
 import com.relit.timemaangement.R;
 import com.relit.timemaangement.TimeManagement;
-import com.skydoves.colorpickerview.ColorEnvelope;
+import com.relit.timemaangement.ui.category.CategoryDatabase;
+import com.relit.timemaangement.ui.category.Category;
 import com.skydoves.colorpickerview.ColorPickerView;
 import com.skydoves.colorpickerview.listeners.ColorListener;
 import com.skydoves.colorpickerview.sliders.BrightnessSlideBar;
@@ -58,7 +54,7 @@ public class EditCategoryActivity extends AppCompatActivity implements IconDialo
         findViews();
         prepareToolbar();
         prepareIconDialog();
-        categoryID = getIntent().getIntExtra(CategoryDatabaseHelper.CATEGORY_ID, 1);
+        categoryID = getIntent().getIntExtra(CategoryDatabase.CATEGORY_ID, 1);
         Category category = TimeManagement.getCategoryDatabase().getCategoryByID(categoryID);
         colorPickerView.setColorListener((ColorListener) this::onColorChosen);
         icon.setOnClickListener(this::onoIconClicked);
@@ -130,7 +126,6 @@ public class EditCategoryActivity extends AppCompatActivity implements IconDialo
         icon = findViewById(R.id.category_icon);
         editName = findViewById(R.id.edit_category_name);
         editShortcut = findViewById(R.id.edit_category_shortcut);
-        ImageView delete = findViewById(R.id.delete_button);
     }
 
     private void onoIconClicked(View view) {
@@ -163,8 +158,8 @@ public class EditCategoryActivity extends AppCompatActivity implements IconDialo
             Toast.makeText(this, "Te pola nie mogą pozostać puste ://", Toast.LENGTH_SHORT).show();
             return;
         }
-        Category category = new Category(categoryID, name, shortcut, color, iconID);
-        CategoryDatabaseHelper categoryDatabase = TimeManagement.getCategoryDatabase();
+        Category category = new Category(categoryID, name, shortcut, iconID, color);
+        CategoryDatabase categoryDatabase = TimeManagement.getCategoryDatabase();
         categoryDatabase.updateCategory(category);
         Toast.makeText(this, "Kategoria zaktualizowana", Toast.LENGTH_SHORT).show();
         onBackPressed();

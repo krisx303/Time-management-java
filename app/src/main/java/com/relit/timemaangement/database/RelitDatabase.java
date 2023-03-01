@@ -117,12 +117,9 @@ public abstract class RelitDatabase<T> extends SQLiteOpenHelper {
     }
 
 
-//    public Category getCategoryByID(int categoryID) {
-//        String query = "SELECT * FROM " + CATEGORY_TABLE + " WHERE " + CATEGORY_ID + " = " + categoryID;
-//        Cursor cursor = this.getWritableDatabase().rawQuery(query, null);
-//        if (cursor.moveToFirst()) {
-//            return new Category(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3), cursor.getInt(4));
-//        }
-//        return null;
-//    }
+    public void updateElement(UpdateQuery updateQuery) {
+        String query = "UPDATE " + tableName + " " + updateQuery.toString();
+        System.out.println(query);
+        this.getWritableDatabase().execSQL(query);
+    }
 }

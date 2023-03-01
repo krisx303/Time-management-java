@@ -7,20 +7,14 @@ import androidx.annotation.Nullable;
 import com.maltaisn.icondialog.pack.IconPack;
 import com.maltaisn.icondialog.pack.IconPackLoader;
 import com.maltaisn.iconpack.defaultpack.IconPackDefault;
-import com.relit.timemaangement.database.CategoryDatabase;
-import com.relit.timemaangement.ui.category.CategoryDatabaseHelper;
+import com.relit.timemaangement.ui.category.CategoryDatabase;
 
 public class TimeManagement extends Application {
 
-    private static CategoryDatabaseHelper categoryDatabase;
-    private static CategoryDatabase catDb;
+    private static CategoryDatabase categoryDatabase;
 
     @Nullable
     private IconPack iconPack;
-
-    public static CategoryDatabase getCatDb() {
-        return catDb;
-    }
 
     @Override
     public void onCreate() {
@@ -28,9 +22,7 @@ public class TimeManagement extends Application {
 
         // Load the icon pack on application start.
         loadIconPack();
-
-        categoryDatabase = new CategoryDatabaseHelper(this);
-        catDb = new CategoryDatabase(this);
+        categoryDatabase = new CategoryDatabase(this);
     }
 
     @Nullable
@@ -49,7 +41,7 @@ public class TimeManagement extends Application {
         return iconPack;
     }
 
-    public static CategoryDatabaseHelper getCategoryDatabase() {
+    public static CategoryDatabase getCategoryDatabase() {
         return categoryDatabase;
     }
 }
