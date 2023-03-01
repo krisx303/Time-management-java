@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.TImeMaangement" parent="Theme.AppCompat.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue_500</item>
+        <item name="colorPrimaryVariant">@color/blue_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="icdStyle">@style/CustomIconDialogStyle</item>
+    </style>
+
+    <style name="Theme.TImeMaangement.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.TImeMaangement.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.TImeMaangement.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!-- Your custom dialog style, don't forget to specify the parent style! -->
+    <style name="CustomIconDialogStyle" parent="IcdStyle">
+        <item name="icdIconSize">56dp</item>
+        <item name="icdIconColor">#B2FDFDFD</item>
+        <item name="icdSelectedIconColor">@color/blue_500</item>
+        <item name="icdListHeaderStyle">@style/CustomHeaderStyle</item>
+    </style>
+
+    <style name="Humbuk" parent="IcdDialogButtonStyle">
+
+    </style>
+
+    <!-- Custom style for the list headers, again don't forget the parent! -->
+    <style name="CustomHeaderStyle" parent="IcdListHeaderStyle">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+</resources>

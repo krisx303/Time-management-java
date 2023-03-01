@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">TIme management</string>
+    <string name="main_menu">Main menu</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Time Management</string>
+    <string name="nav_header_subtitle">Czasozarządzaczoinator</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Ustawienia</string>
+    <string name="home_page">Strona główna</string>
+    <string name="calendar">Kalendarz</string>
+    <string name="settings">Ustawienia</string>
+    <string name="idk_yet">Jeszcze nie wiem</string>
+    <string name="add_new_activity">Dodaj nową aktywność</string>
+    <string name="category">Kategorie</string>
+    <string name="add_new_category">Dodaj nową kategorię</string>
+    <string name="enter_category_name">Wpisz nazwę kategorii</string>
+    <string name="enter_category_shortcut">Wpisz skrótową nazwę</string>
+    <string name="confirm">Potwierdź</string>
+    <string name="random">Wylosuj</string>
+    <string name="edit">Edytuj</string>
+    <string name="confirmation">Potwierdzenie</string>
+</resources>

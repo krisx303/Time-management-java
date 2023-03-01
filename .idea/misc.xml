@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable-v24/action_bar_vector.xml" value="0.25" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.20729166666666668" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/calendar_event_vector.xml" value="0.2462962962962963" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/grid_background.xml" value="0.25092592592592594" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/ic_calendar_month.xml" value="0.2760416666666667" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/ic_edit.xml" value="0.3828125" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/ic_menu_calendar.xml" value="0.28177083333333336" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/ic_menu_camera.xml" value="0.3828125" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.3828125" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/ic_menu_home.xml" value="0.28177083333333336" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.28177083333333336" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/menu_dots_vector.xml" value="0.3828125" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/menu_rounded_vector.xml" value="0.33" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/side_nav_bar.xml" value="0.3828125" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/underlined_edit_text_focused.xml" value="0.2760416666666667" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/underlined_edit_text_selector.xml" value="0.2760416666666667" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/drawable/white_edit_text.xml" value="0.2760416666666667" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout-v28/castegory_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/action_bar.xml" value="0.22" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/activity_add_category.xml" value="0.4685185185185185" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/activity_edit_category.xml" value="0.36666666666666664" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/activity_main2.xml" value="0.2" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/app_bar_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/calendar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/calendar_event.xml" value="0.1" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/calendar_weekdays.xml" value="0.36666666666666664" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/castegory_item.xml" value="0.33" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/category_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/fragment_calendar.xml" value="0.265625" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/fragment_category.xml" value="0.24" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/fragment_connect.xml" value="0.1" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/fragment_gallery.xml" value="0.23697916666666666" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/list_view_item_row.xml" value="0.1" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/nav_header_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/layout/toolbar.xml" value="0.1" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/menu/activity_main_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/menu/calendar_action_menu.xml" value="0.28802083333333334" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/menu/home_action_menu.xml" value="0.28802083333333334" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/menu/main_activity2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.20729166666666668" />
+        <entry key="..\:/Flutter apps/TImemaangement/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.20729166666666668" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
