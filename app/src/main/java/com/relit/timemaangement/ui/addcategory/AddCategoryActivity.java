@@ -18,6 +18,7 @@ import com.maltaisn.icondialog.IconDialogSettings;
 import com.maltaisn.icondialog.data.Icon;
 import com.maltaisn.icondialog.filter.DefaultIconFilter;
 import com.maltaisn.icondialog.pack.IconPack;
+import com.relit.timemaangement.ToolbarActivity;
 import com.relit.timemaangement.ui.category.Category;
 import com.relit.timemaangement.R;
 import com.relit.timemaangement.TimeManagement;
@@ -30,7 +31,7 @@ import com.skydoves.colorpickerview.sliders.BrightnessSlideBar;
 import java.util.List;
 import java.util.Random;
 
-public class AddCategoryActivity extends AppCompatActivity implements IconDialog.Callback {
+public class AddCategoryActivity extends ToolbarActivity implements IconDialog.Callback {
 
     private static final String ICON_DIALOG_TAG = "icon-dialog";
     private ImageView icon;
@@ -47,7 +48,7 @@ public class AddCategoryActivity extends AppCompatActivity implements IconDialog
         setContentView(R.layout.activity_add_category);
         random = new Random();
         findViews();
-        prepareToolbar();
+        prepareToolbar("Stwórz nową kategorię");
         prepareIconDialog();
         colorPickerView.attachBrightnessSlider(slideBar);
         colorPickerView.setColorListener((ColorListener) this::onColorChosen);
@@ -92,13 +93,6 @@ public class AddCategoryActivity extends AppCompatActivity implements IconDialog
         iconDialog.show(getSupportFragmentManager(), ICON_DIALOG_TAG);
     }
 
-    private void prepareToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Stwórz nową kategorię");
-    }
-
     private void setIconByID(int id) {
         Icon iconSrc;
         if (getIconDialogIconPack() != null && (iconSrc = getIconDialogIconPack().getIcon(id)) != null)
@@ -141,14 +135,5 @@ public class AddCategoryActivity extends AppCompatActivity implements IconDialog
 
     @Override
     public void onIconDialogCancelled() {
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
