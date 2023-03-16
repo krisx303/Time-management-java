@@ -11,6 +11,7 @@
     <string name="calendar">Kalendarz</string>
     <string name="settings">Ustawienia</string>
     <string name="idk_yet">Jeszcze nie wiem</string>
+    <string name="idk_yet_short">Co To</string>
     <string name="add_new_activity">Dodaj nową aktywność</string>
     <string name="category">Kategorie</string>
     <string name="add_new_category">Dodaj nową kategorię</string>
@@ -20,4 +21,13 @@
     <string name="random">Wylosuj</string>
     <string name="edit">Edytuj</string>
     <string name="confirmation">Potwierdzenie</string>
+    <string name="change">ZMIEŃ</string>
+    <string name="cancel">Anuluj</string>
+    <string-array name="ActivityDayType">
+        <item>Wybierz dzień</item>
+        <item>Dzisiaj</item>
+        <item>Jutro</item>
+        <item>Wybierz datę</item>
+        <item>Powtarzalne</item>
+    </string-array>
 </resources>
