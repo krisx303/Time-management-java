@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.relit.timemaangement.CalendarEvent;
 import com.relit.timemaangement.R;
+import com.relit.timemaangement.util.Helper;
 import com.relit.timemaangement.util.Hour;
 
 import java.util.Calendar;
@@ -114,16 +115,10 @@ public class CalendarView extends ViewGroup {
         return (int)(((float)(hour.hour * 60 + hour.minutes) / 90) * rowHeight);
     }
 
-    private Hour getCurrentHour(Calendar calendar){
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minutes = calendar.get(Calendar.MINUTE);
-        return new Hour(hour, minutes);
-    }
-
     private void drawMarkedTime(Canvas canvas){
         paint.setColor(Color.parseColor("#323232"));
         Calendar calendar = Calendar.getInstance();
-        Hour currentHour = getCurrentHour(calendar);
+        Hour currentHour = Helper.getCurrentHour();
         int weekday = calendar.get(Calendar.DAY_OF_WEEK);
         canvas.drawRect(LEFT_MARGIN, 0, LEFT_MARGIN + (columnWidth * (weekday - 2)), getHeight(), paint);
         if(currentHour.hour < 8) return;

@@ -13,6 +13,23 @@ public class Hour {
         this.minutes = minutes;
     }
 
+    public Hour(int hour){
+        this(hour, 0);
+    }
+
+    public Hour add(int hour, int minutes){
+        Hour hourCopy = new Hour(this.hour + hour, this.minutes + minutes);
+        if(hourCopy.minutes > 59){
+            hourCopy.hour++;
+            hourCopy.minutes -= 60;
+        }
+        return hourCopy;
+    }
+
+    public Hour add(Hour interval){
+        return add(interval.hour, interval.minutes);
+    }
+
     public void addInterval(Hour interval){
         this.minutes += interval.minutes;
         if (this.minutes > 59){
@@ -27,5 +44,10 @@ public class Hour {
     @Override
     public String toString() {
         return String.format("%d:%02d", this.hour, this.minutes);
+    }
+
+    public void setValues(int hour, int minutes) {
+        this.hour = hour;
+        this.minutes = minutes;
     }
 }

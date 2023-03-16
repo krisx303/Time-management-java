@@ -11,7 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TImeMaangement">
         <activity
-            android:name=".ui.addevent.AddCalendarEvent"
+            android:name=".ui.abcalendar.ABCalendarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.addevent.AddCalendarEventActivity"
             android:exported="true" />
         <activity
             android:name=".ui.editcategory.EditCategoryActivity"

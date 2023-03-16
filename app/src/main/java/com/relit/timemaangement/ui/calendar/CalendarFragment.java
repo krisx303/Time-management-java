@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment;
 
 import com.relit.timemaangement.R;
 import com.relit.timemaangement.databinding.FragmentCalendarBinding;
-import com.relit.timemaangement.ui.addevent.AddCalendarEvent;
+import com.relit.timemaangement.ui.addevent.AddCalendarEventActivity;
 
 public class CalendarFragment extends Fragment {
 
@@ -36,7 +36,7 @@ public class CalendarFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == R.id.action_add_new_activity){
-            Intent intent = new Intent(getContext(), AddCalendarEvent.class);
+            Intent intent = new Intent(getContext(), AddCalendarEventActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

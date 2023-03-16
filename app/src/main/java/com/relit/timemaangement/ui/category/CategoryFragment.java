@@ -19,6 +19,7 @@ import com.relit.timemaangement.TimeManagement;
 import com.relit.timemaangement.databinding.FragmentCategoryBinding;
 import com.relit.timemaangement.ui.addcategory.AddCategoryActivity;
 import com.relit.timemaangement.ui.editcategory.EditCategoryActivity;
+import com.relit.timemaangement.util.Helper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class CategoryFragment extends Fragment {
         RecyclerView recyclerView = binding.getRoot().findViewById(R.id.recycler_view);
         categories = TimeManagement.getCategoryDatabase().getAllElements();
         categories.forEach(System.out::println);
-        adapter = new CategoryAdapter(categories, this::onCategoryClick, getIcons());
+        adapter = new CategoryAdapter(categories, this::onCategoryClick, Helper.getIcons(getActivity()));
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
         return binding.getRoot();
@@ -49,12 +50,6 @@ public class CategoryFragment extends Fragment {
         Intent intent = new Intent(getActivity(), EditCategoryActivity.class);
         intent.putExtra(CategoryDatabase.CATEGORY_ID, category.getId());
         startActivity(intent);
-    }
-
-
-    @Nullable
-    public Map<Integer, Icon> getIcons() {
-        return ((TimeManagement) getActivity().getApplication()).getIconPack().getIcons();
     }
 
     private void onAddCategoryClicked(View view) {

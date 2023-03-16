@@ -21,11 +21,20 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     private final List<Category> categories;
     private final OnCategoryClickListener listener;
     private final Map<Integer, Icon> icons;
+    private final boolean isDialogElement;
 
     public CategoryAdapter(List<Category> categories, OnCategoryClickListener listener, Map<Integer, Icon> icons) {
         this.categories = categories;
         this.listener = listener;
         this.icons = icons;
+        this.isDialogElement = false;
+    }
+
+    public CategoryAdapter(List<Category> categories, OnCategoryClickListener listener, Map<Integer, Icon> icons, boolean isDialogElement) {
+        this.categories = categories;
+        this.listener = listener;
+        this.icons = icons;
+        this.isDialogElement = isDialogElement;
     }
 
     @NonNull
@@ -43,6 +52,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         Icon icon = icons.get(category.getIconID());
         if(icon != null)
         holder.bind(category, listener, icon);
+        if(isDialogElement)
+            holder.itemView.setOnClickListener(v -> listener.onCategoryClick(category));
     }
 
     @Override
@@ -50,7 +61,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return categories.size();
     }
 
-    protected static class CategoryViewHolder extends RecyclerView.ViewHolder {
+    protected class CategoryViewHolder extends RecyclerView.ViewHolder {
         private final TextView name;
         private final TextView shortcut;
         private final ImageButton edit;
@@ -62,14 +73,19 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             shortcut = itemView.findViewById(R.id.category_shortcut);
             edit = itemView.findViewById(R.id.edit_button);
             iconView = itemView.findViewById(R.id.category_icon);
+            if(CategoryAdapter.this.isDialogElement){
+                edit.setVisibility(View.INVISIBLE);
+            }
         }
 
         public void bind(Category category, OnCategoryClickListener listener, Icon icon) {
             name.setText(category.getName());
             shortcut.setText(category.getShortcut());
-            edit.setOnClickListener((v) -> listener.onCategoryClick(category));
             iconView.setImageDrawable(icon.getDrawable());
             iconView.setColorFilter(new LightingColorFilter(iconView.getSolidColor(), category.getColor()));
+            if(!CategoryAdapter.this.isDialogElement){
+                edit.setOnClickListener((v) -> listener.onCategoryClick(category));
+            }
         }
     }
 }
