@@ -11,13 +11,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public abstract class RelitDatabase<T> extends SQLiteOpenHelper {
+public abstract class AbstractDatabase<T> extends SQLiteOpenHelper {
 
     private final String tableName;
     private final List<Column> columns;
     public static final int INFINITY = -1;
 
-    public RelitDatabase(Context context, String dbName, String tableName) {
+    public AbstractDatabase(Context context, String dbName, String tableName) {
         super(context, dbName + ".db", null, 1);
         this.tableName = tableName;
         this.columns = new ArrayList<>();
@@ -47,6 +47,11 @@ public abstract class RelitDatabase<T> extends SQLiteOpenHelper {
         return builder.toString();
     }
 
+    /** Use this in onCreate method to provide a initial data in database*/
+    protected boolean addInitialValue(SQLiteDatabase database, T element){
+        return database.insert(tableName, null, getCVFromElement(element)) != -1;
+    }
+
     protected boolean addElement(ContentValues cv) {
         SQLiteDatabase db = this.getWritableDatabase();
         long insert = db.insert(tableName, null, cv);
@@ -54,9 +59,13 @@ public abstract class RelitDatabase<T> extends SQLiteOpenHelper {
         return insert != -1;
     }
 
-    protected abstract boolean addElement(T element);
+    public boolean addElement(T element){
+        return addElement(getCVFromElement(element));
+    }
 
     protected abstract T getElementFromCursor(Cursor cursor);
+
+    protected abstract ContentValues getCVFromElement(T element);
 
     public List<T> rawQuery(String query) {
         SQLiteDatabase db = this.getReadableDatabase();

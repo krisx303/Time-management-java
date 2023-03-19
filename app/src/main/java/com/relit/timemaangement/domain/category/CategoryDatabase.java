@@ -7,10 +7,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.relit.timemaangement.database.ColumnOption;
 import com.relit.timemaangement.database.ColumnType;
-import com.relit.timemaangement.database.RelitDatabase;
+import com.relit.timemaangement.database.AbstractDatabase;
 import com.relit.timemaangement.database.UpdateQuery;
 
-public class CategoryDatabase extends RelitDatabase<Category> {
+public class CategoryDatabase extends AbstractDatabase<Category> {
     public static final String CATEGORY_TABLE = "CATEGORY_TABLE";
     public static final String CATEGORY_ID = "CATEGORY_ID";
     public static final String NAME = "CATEGORY_NAME";
@@ -30,16 +30,17 @@ public class CategoryDatabase extends RelitDatabase<Category> {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         super.onCreate(sqLiteDatabase);
+        addInitialValue(sqLiteDatabase, new Category("Bez Kategorii", "Bez Kategorii", 3, 47));
     }
 
     @Override
-    public boolean addElement(Category category) {
+    protected ContentValues getCVFromElement(Category category) {
         ContentValues cv = new ContentValues();
         cv.put(NAME, category.getName());
         cv.put(SHORTCUT, category.getShortcut());
         cv.put(ICON_ID, category.getIconID());
         cv.put(COLOR, category.getColor());
-        return addElement(cv);
+        return cv;
     }
 
     @Override

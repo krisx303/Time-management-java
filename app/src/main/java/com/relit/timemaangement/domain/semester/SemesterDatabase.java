@@ -6,9 +6,9 @@ import android.database.Cursor;
 
 import com.relit.timemaangement.database.ColumnOption;
 import com.relit.timemaangement.database.ColumnType;
-import com.relit.timemaangement.database.RelitDatabase;
+import com.relit.timemaangement.database.AbstractDatabase;
 
-public class SemesterDatabase extends RelitDatabase<Semester> {
+public class SemesterDatabase extends AbstractDatabase<Semester> {
     public static final String SEMESTER_TABLE = "SEMESTER_TABLE";
     public static final String SEMESTER_ID = "SEMESTER_ID";
     public static final String NAME = "SEMESTER_NAME";
@@ -26,24 +26,23 @@ public class SemesterDatabase extends RelitDatabase<Semester> {
     }
 
     @Override
-    public boolean addElement(Semester semester) {
-        ContentValues cv = new ContentValues();
-        cv.put(NAME, semester.getName());
-        cv.put(DATA, semester.getData());
-        cv.put(START_DATE, semester.getStartDateAsString());
-        cv.put(END_DATE, semester.getEndDateAsString());
-        return addElement(cv);
-    }
-
-    @Override
     protected Semester getElementFromCursor(Cursor cursor) {
         int id = cursor.getInt(0);
         String name = cursor.getString(1);
         String data = cursor.getString(2);
         String startDate = cursor.getString(3);
         String endDate = cursor.getString(4);
-        System.out.println(name + " " + data + " " + startDate + " " + endDate);
         return new Semester(id, name, data, startDate, endDate);
+    }
+
+    @Override
+    protected ContentValues getCVFromElement(Semester semester) {
+        ContentValues cv = new ContentValues();
+        cv.put(NAME, semester.getName());
+        cv.put(DATA, semester.getData());
+        cv.put(START_DATE, semester.getStartDateAsString());
+        cv.put(END_DATE, semester.getEndDateAsString());
+        return cv;
     }
 
     public Semester getCategoryByID(int categoryID) {
