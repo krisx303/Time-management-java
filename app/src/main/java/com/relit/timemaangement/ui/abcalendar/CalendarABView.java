@@ -9,23 +9,20 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import com.relit.timemaangement.CalendarEvent;
 import com.relit.timemaangement.R;
-import com.relit.timemaangement.util.Helper;
-import com.relit.timemaangement.util.Hour;
-
-import java.util.Calendar;
-import java.util.List;
+import com.relit.timemaangement.domain.abcalendar.CalendarColor;
+import com.relit.timemaangement.domain.abcalendar.CalendarDataAB;
 
 public class CalendarABView extends ViewGroup {
 
     private float columnWidth;
-    private int days = 5;
-    private int rowHeight = 220;
+    private static final int days = 5;
+    private static final int rowHeight = 220;
     private final Paint paint = new Paint();
-    private int year, month, day, rows = 0;
+    private CalendarDataAB calendarData;
+    private boolean initialized = false;
+    private int ID = 0;
 
     public CalendarABView(Context context) {
         this(context, null);
@@ -43,26 +40,26 @@ public class CalendarABView extends ViewGroup {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        LayoutInflater.from(context).inflate(R.layout.fragment_calendar, this, true);
+        LayoutInflater.from(context).inflate(R.layout.calendar, this, true);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         super.onTouchEvent(event);
-        System.out.println(event.getX() + " " + event.getY());
+        if(!initialized) return true;
+        int y = (int) (event.getY() / rowHeight);
+        int x = (int) (event.getX() / columnWidth);
+        if (x < 0 || x >= days || y < 0 || y >= getNOfRows())
+            return true;
+        calendarData.paintCell(ID, y, x);
+        invalidate();
         return true;
     }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        // Measure the children
         measureChildren(widthMeasureSpec, heightMeasureSpec);
-
-        // Determine the width and height of the custom view
-        int width = getMeasuredWidth();
-
-        // Set the dimensions of the custom view
-        setMeasuredDimension(width, rowHeight*rows+2);
+        setMeasuredDimension(getMeasuredWidth(), rowHeight * getNOfRows() + 2);
     }
 
     @Override
@@ -74,7 +71,7 @@ public class CalendarABView extends ViewGroup {
         }
     }
 
-    private void drawGridLines(Canvas canvas){
+    private void drawGridLines(Canvas canvas) {
         paint.setColor(Color.parseColor("#424242"));
         float x = 0;
         for (int i = 0; i < days; i++) {
@@ -82,47 +79,51 @@ public class CalendarABView extends ViewGroup {
             x += columnWidth;
         }
 
-        for (int i = 0; i < 8; i++) {
-            canvas.drawLine(0,  i*rowHeight, getWidth(), i*rowHeight, paint);
+        for (int i = 0; i < getNOfRows() + 1; i++) {
+            canvas.drawLine(0, i * rowHeight, getWidth(), i * rowHeight, paint);
         }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        columnWidth = (getWidth()) / days;
+        columnWidth = (float) getWidth() / days;
         paint.setStrokeWidth(1f);
+        if(!initialized) return;
+        int y;
+        for (int row = 0; row < getNOfRows(); row++) {
+            CalendarColor[] colorsRow = calendarData.getColors(ID, row);
+            for (int col = 0; col < days; col++) {
+                if (colorsRow[col] == CalendarColor.WEEK_DAY_NONE) continue;
+                paint.setColor(colorsRow[col].color);
+                int x = (int) (col * columnWidth);
+                y = row * rowHeight;
+                canvas.drawRect(x, y, x + columnWidth, y + rowHeight, paint);
+            }
+        }
         drawGridLines(canvas);
         paint.setColor(Color.WHITE);
         paint.setTextSize(35f);
         paint.setTextAlign(Paint.Align.RIGHT);
 
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, 1);
-
-        int startDay = (calendar.get(Calendar.DAY_OF_WEEK)+5) % 7;
-        calendar.add(Calendar.DAY_OF_MONTH, -startDay);
-        int y = (int)(rowHeight/2);
-        for (int j = 0; j < 5; j++) {
-            for (int i = 0; i < 5; i++) {
-                canvas.drawText(String.valueOf(calendar.get(Calendar.DAY_OF_MONTH)), (int) ((columnWidth)*(i+0.6f)), y,  paint);
-                calendar.add(Calendar.DAY_OF_MONTH, 1);
+        y = rowHeight / 2;
+        for (int j = 0; j < getNOfRows(); j++) {
+            for (int i = 0; i < days; i++) {
+                canvas.drawText(calendarData.getLabels(ID, j)[i], (int) ((columnWidth) * (i + 0.6f)), y, paint);
             }
-            calendar.add(Calendar.DAY_OF_MONTH, 2);
             y += rowHeight;
         }
     }
 
-    public void setDate(int year, int month, int day) {
-        this.year = year;
-        this.month = month;
-        this.day = day;
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, 1);
-        for (int i = 0; i < 10; i++) {
-            this.rows += 1;
-            calendar.add(Calendar.DAY_OF_MONTH, 7);
-            if(calendar.get(Calendar.MONTH) != month) break;
-        }
+
+    public void setMonthData(CalendarDataAB monthData, int id, boolean isLast) {
+        this.initialized = true;
+        this.ID = id;
+        this.calendarData = monthData;
+    }
+
+    private int getNOfRows(){
+        if(!initialized) return 0;
+        return calendarData.getNOfRows(ID);
     }
 }

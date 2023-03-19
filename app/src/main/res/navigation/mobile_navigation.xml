@@ -24,6 +24,12 @@
         tools:layout="@layout/fragment_category" />
 
     <fragment
+        android:id="@+id/nav_terms"
+        android:name="com.relit.timemaangement.ui.abcalendar.SemesterListFragment"
+        android:label="Semestry"
+        tools:layout="@layout/fragment_semester_list"/>
+
+    <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.relit.timemaangement.ui.settings.SettingsFragment"
         android:label="@string/settings"

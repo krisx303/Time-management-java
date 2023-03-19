@@ -6,4 +6,8 @@
         <attr name="data" format="string" />
         <attr name="hint"/>
     </declare-styleable>
+
+    <declare-styleable name="RoundedCornerButton">
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
 </resources>

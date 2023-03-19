@@ -8,7 +8,9 @@ import androidx.annotation.Nullable;
 import com.maltaisn.icondialog.data.Icon;
 import com.relit.timemaangement.TimeManagement;
 
+import java.text.DateFormatSymbols;
 import java.util.Calendar;
+import java.util.Locale;
 import java.util.Map;
 
 public class Helper {
@@ -27,5 +29,15 @@ public class Helper {
     @Nullable
     public static Map<Integer, Icon> getIcons(Activity activity) {
         return ((TimeManagement) activity.getApplication()).getIconPack().getIcons();
+    }
+
+    public static String[] getMonths(){
+        Locale locale = new Locale("pl", "PL"); // French language in France
+
+// Get the DateFormatSymbols for the specified locale
+        DateFormatSymbols symbols = new DateFormatSymbols(locale);
+
+// Get the array of month names in the specified locale
+        return symbols.getMonths();
     }
 }

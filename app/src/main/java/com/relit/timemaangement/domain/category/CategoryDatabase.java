@@ -1,8 +1,9 @@
-package com.relit.timemaangement.ui.category;
+package com.relit.timemaangement.domain.category;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.relit.timemaangement.database.ColumnOption;
 import com.relit.timemaangement.database.ColumnType;
@@ -24,6 +25,11 @@ public class CategoryDatabase extends RelitDatabase<Category> {
         addColumn(SHORTCUT, ColumnType.TEXT);
         addColumn(ICON_ID, ColumnType.INTEGER);
         addColumn(COLOR, ColumnType.INTEGER);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        super.onCreate(sqLiteDatabase);
     }
 
     @Override

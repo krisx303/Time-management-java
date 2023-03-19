@@ -6,4 +6,10 @@
         android:orderInCategory="0"
         android:title="@string/add_new_activity"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_add_new_repeated_activity"
+        android:orderInCategory="1"
+        android:title="@string/add_new_repeated_activity"
+        app:showAsAction="never" />
 </menu>

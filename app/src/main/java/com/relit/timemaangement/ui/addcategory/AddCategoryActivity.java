@@ -7,8 +7,8 @@ import android.widget.Toast;
 import com.relit.timemaangement.R;
 import com.relit.timemaangement.TimeManagement;
 import com.relit.timemaangement.ui.category.CategoryPatternActivity;
-import com.relit.timemaangement.ui.category.Category;
-import com.relit.timemaangement.ui.category.CategoryDatabase;
+import com.relit.timemaangement.domain.category.Category;
+import com.relit.timemaangement.domain.category.CategoryDatabase;
 
 public class AddCategoryActivity extends CategoryPatternActivity {
 

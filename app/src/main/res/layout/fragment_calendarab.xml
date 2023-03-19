@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="ABCalendarFragment">
+    tools:context=".ui.abcalendar.ABCalendarFragment">
 
     <TextView
         android:id="@+id/month_title"
@@ -29,6 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/month_title"/>
 
     <com.relit.timemaangement.ui.abcalendar.CalendarABView
+        android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -2,7 +2,6 @@ package com.relit.timemaangement.util;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -12,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.maltaisn.icondialog.data.Icon;
 import com.relit.timemaangement.R;
 import com.relit.timemaangement.TimeManagement;
-import com.relit.timemaangement.ui.category.Category;
+import com.relit.timemaangement.domain.category.Category;
 import com.relit.timemaangement.ui.category.CategoryAdapter;
-import com.relit.timemaangement.ui.category.OnCategoryClickListener;
+import com.relit.timemaangement.domain.category.OnCategoryClickListener;
 
 import java.util.List;
 import java.util.Map;

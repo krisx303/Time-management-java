@@ -1,4 +1,4 @@
-package com.relit.timemaangement.ui.category;
+package com.relit.timemaangement.domain.category;
 
 public class Category {
     private final int id;

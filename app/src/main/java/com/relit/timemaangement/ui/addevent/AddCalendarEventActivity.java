@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.graphics.LightingColorFilter;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.DatePicker;
@@ -13,19 +12,15 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.maltaisn.icondialog.data.Icon;
 import com.relit.timemaangement.DateTimeChoosingView;
 import com.relit.timemaangement.R;
-import com.relit.timemaangement.TimeManagement;
 import com.relit.timemaangement.ToolbarActivity;
-import com.relit.timemaangement.ui.category.Category;
+import com.relit.timemaangement.domain.category.Category;
 import com.relit.timemaangement.util.CategoryDialog;
 import com.relit.timemaangement.util.Helper;
 import com.relit.timemaangement.util.Hour;
-
-import java.util.Date;
 
 public class AddCalendarEventActivity extends ToolbarActivity implements AdapterView.OnItemSelectedListener {
 
@@ -42,8 +37,8 @@ public class AddCalendarEventActivity extends ToolbarActivity implements Adapter
         setContentView(R.layout.activity_add_calendar_event);
         prepareToolbar("Stwórz nową aktywność");
         spinner = findViewById(R.id.spinner);
-        startHourChoosing = findViewById(R.id.start_hour);
-        endHourChoosing = findViewById(R.id.end_hour);
+        startHourChoosing = findViewById(R.id.start_date);
+        endHourChoosing = findViewById(R.id.end_date);
         startHour = Helper.getCurrentHour();
         startHourChoosing.setDataText(startHour.toString());
         endHour = startHour.add(1, 0);
@@ -66,8 +61,8 @@ public class AddCalendarEventActivity extends ToolbarActivity implements Adapter
         ImageView iconView = findViewById(R.id.category_icon);
         iconView.setImageDrawable(icon.getDrawable());
         iconView.setColorFilter(new LightingColorFilter(iconView.getSolidColor(), category.getColor()));
-        ((TextView) findViewById(R.id.category_name)).setText(category.getName());
-        ((TextView) findViewById(R.id.category_shortcut)).setText(category.getShortcut());
+        ((TextView) findViewById(R.id.semester_name)).setText(category.getName());
+        ((TextView) findViewById(R.id.semester_period)).setText(category.getShortcut());
     }
 
     private void onStartHourChoosing(View ignore) {

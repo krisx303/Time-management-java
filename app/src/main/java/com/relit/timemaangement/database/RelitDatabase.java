@@ -119,7 +119,14 @@ public abstract class RelitDatabase<T> extends SQLiteOpenHelper {
 
     public void updateElement(UpdateQuery updateQuery) {
         String query = "UPDATE " + tableName + " " + updateQuery.toString();
-        System.out.println(query);
         this.getWritableDatabase().execSQL(query);
+    }
+
+    public Optional<T> searchWhereMaxQuery(String columnName){
+        String query = "SELECT * FROM " + tableName + " WHERE " + columnName + " = (SELECT MAX(" +
+                columnName + ") FROM " + tableName + ") LIMIT 1;";
+        List<T> ts = rawQuery(query);
+        if (ts.size() == 0) return Optional.empty();
+        return Optional.of(ts.get(0));
     }
 }

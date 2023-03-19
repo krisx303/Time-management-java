@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TImeMaangement">
         <activity
+            android:name=".ui.abcalendar.AddABCalendarActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.abcalendar.ABCalendarActivity"
             android:exported="true" />
         <activity

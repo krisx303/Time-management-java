@@ -23,6 +23,11 @@
     <string name="confirmation">Potwierdzenie</string>
     <string name="change">ZMIEŃ</string>
     <string name="cancel">Anuluj</string>
+    <string name="add_new_repeated_activity">Dodaj powtarzalną aktywność</string>
+    <string name="terms">Semestry</string>
+    <string name="add_new_semester">Dodaj nowy semestr</string>
+    <string name="save">Zapisz</string>
+    <string name="enter_semester_name">Wpisz nazwę semestru</string>
     <string-array name="ActivityDayType">
         <item>Wybierz dzień</item>
         <item>Dzisiaj</item>

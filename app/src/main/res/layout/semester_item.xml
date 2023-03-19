@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="30dp"
@@ -8,6 +9,7 @@
     android:gravity="center_vertical">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/material_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
@@ -22,34 +24,26 @@
             android:layout_margin="15dp"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:src="@drawable/ic_menu_home"
-                android:id="@+id/category_icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
             <TextView
                 android:id="@+id/semester_name"
-                android:text="Technika Cyfrowa"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/category_icon"
-                app:layout_constraintTop_toTopOf="parent"
+                android:text="Technika Cyfrowa"
+                android:gravity="center"
                 app:layout_constraintEnd_toStartOf="@id/edit_button"
-                android:layout_marginStart="10dp"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/semester_period"
-                android:text="~cyfrówka"
-                android:textSize="11sp"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toEndOf="@id/category_icon"
-                app:layout_constraintTop_toBottomOf="@id/semester_name"
-                android:layout_marginStart="10dp"/>
+                android:text="cyfrówka"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/edit_button"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/semester_name" />
 
             <ImageButton
                 android:id="@+id/edit_button"
@@ -57,7 +51,8 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="edit" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>

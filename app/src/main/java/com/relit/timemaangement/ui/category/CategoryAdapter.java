@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.maltaisn.icondialog.data.Icon;
 import com.relit.timemaangement.R;
+import com.relit.timemaangement.domain.category.Category;
+import com.relit.timemaangement.domain.category.OnCategoryClickListener;
 
 import java.util.List;
 import java.util.Map;
@@ -69,8 +71,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
         public CategoryViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.category_name);
-            shortcut = itemView.findViewById(R.id.category_shortcut);
+            name = itemView.findViewById(R.id.semester_name);
+            shortcut = itemView.findViewById(R.id.semester_period);
             edit = itemView.findViewById(R.id.edit_button);
             iconView = itemView.findViewById(R.id.category_icon);
             if(CategoryAdapter.this.isDialogElement){

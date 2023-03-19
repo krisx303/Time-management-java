@@ -55,7 +55,7 @@ public abstract class CategoryPatternActivity extends ToolbarActivity implements
         colorPickerView = findViewById(R.id.colorPickerView);
         slideBar = findViewById(R.id.brightnessSlide);
         icon = findViewById(R.id.category_icon);
-        editName = findViewById(R.id.edit_category_name);
+        editName = findViewById(R.id.edit_semester_name);
         editShortcut = findViewById(R.id.edit_category_shortcut);
     }
 

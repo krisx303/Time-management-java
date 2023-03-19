@@ -7,23 +7,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.maltaisn.icondialog.data.Icon;
 import com.relit.timemaangement.R;
 import com.relit.timemaangement.TimeManagement;
 import com.relit.timemaangement.databinding.FragmentCategoryBinding;
+import com.relit.timemaangement.domain.category.Category;
+import com.relit.timemaangement.domain.category.CategoryDatabase;
 import com.relit.timemaangement.ui.addcategory.AddCategoryActivity;
 import com.relit.timemaangement.ui.editcategory.EditCategoryActivity;
 import com.relit.timemaangement.util.Helper;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class CategoryFragment extends Fragment {
 
